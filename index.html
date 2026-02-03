@@ -24,15 +24,15 @@
     }
     
     .light-mode {
-      --dark: #FFFFFF;
-      --light: #000000;
-      --nav-bg: rgba(156, 46, 46, 0.95);
-      --card-bg: var(--dark);
+      --dark: #f7f9fc;
+      --light: #101318;
+      --nav-bg: rgba(255, 255, 255, 0.95);
+      --card-bg: rgba(0, 0, 0, 0.05);
       --input-bg: rgba(0, 0, 0, 0.05);
-      --event-bg: rgba(0, 0, 0, 0.03);
-      --gradient: linear-gradient(135deg, #e0e6e0, var(--primary));
-      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      --neon-glow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 40px var(--primary);
+      --event-bg: rgba(0, 0, 0, 0.04);
+      --gradient: linear-gradient(135deg, #eaf1ff, var(--primary));
+      --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      --neon-glow: 0 0 10px rgba(4, 120, 255, 0.25), 0 0 20px rgba(4, 120, 255, 0.25);
     }
     
     * {
@@ -202,6 +202,15 @@
       background: linear-gradient(45deg,
           transparent 25%, rgb(255, 255, 255, 0.1) 50%, transparent 75%);
       z-index: 1;
+    }
+
+    .light-mode header::before {
+      opacity: 0.45;
+    }
+
+    .light-mode header::after {
+      background: linear-gradient(45deg,
+          transparent 25%, rgba(0, 0, 0, 0.08) 50%, transparent 75%);
     }
     
     .logo {
@@ -977,6 +986,9 @@
   <div class="theme-switch" onclick="toggleTheme()">
     <i class="fas fa-moon"></i>
   </div>
+  <div class="sound-button" onclick="toggleAudio()" title="Play / Pause">
+    <i class="fas fa-play"></i>
+  </div>
 
   <!-- header changed to new display name -->
   <header style="padding:4rem 2rem;text-align:center;">
@@ -1054,6 +1066,10 @@
   </footer>
 
   
+  <audio id="bg-audio" preload="none">
+    <source src="./1895.mp3" type="audio/mpeg">
+  </audio>
+
   <!-- Minimal scripts: keep theme toggle and section observer only -->
   <script>
     window.addEventListener('load', function() {
@@ -1066,6 +1082,21 @@
       if (themeIcon) {
         themeIcon.classList.toggle('fa-moon');
         themeIcon.classList.toggle('fa-sun');
+      }
+    }
+
+    function toggleAudio() {
+      const audio = document.getElementById('bg-audio');
+      const icon = document.querySelector('.sound-button i');
+      if (!audio || !icon) return;
+      if (audio.paused) {
+        audio.play();
+        icon.classList.remove('fa-play');
+        icon.classList.add('fa-pause');
+      } else {
+        audio.pause();
+        icon.classList.remove('fa-pause');
+        icon.classList.add('fa-play');
       }
     }
 
