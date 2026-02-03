@@ -9,14 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: rgb(4, 120, 255); /* changed to blue */
+      --primary: rgb(4, 120, 255); /* main blue */
       --dark: #000000;
       --light: #FFFFFF;
       --nav-bg: rgba(0, 0, 0, 0.9);
       --card-bg: rgba(255, 255, 255, 0.1);
       --input-bg: rgba(255, 255, 255, 0.1);
       --event-bg: rgba(255, 255, 255, 0.05);
-      --gradient: var(--primary); /* use a single blue shade */
+      --accent: #ff4b04; /* warm accent */
+      --gradient: linear-gradient(135deg, var(--primary), #66a6ff);
       --card-bg-light: rgba(255, 255, 255, 0.95);
       --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       --neon-glow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 40px var(--primary);
@@ -214,7 +215,7 @@
       position: sticky;
       top: 0;
       backdrop-filter: blur(10px);
-      box-shadow: 0 0 10px rgb(255, 75, 4);
+      box-shadow: 0 0 10px rgba(4, 120, 255, 0.6);
       z-index: 1000;
       transition: all 0.3s ease;
       border-bottom: 1px solid var(--primary);
@@ -268,7 +269,7 @@
       left: 0;
       width: 0;
       height: 100%;
-      background: rgba(204, 99, 0, 0.1);
+      background: rgba(4, 120, 255, 0.12);
       border-radius: 30px;
       transition: width 0.3s ease;
       z-index: -1;
@@ -480,7 +481,7 @@
       object-fit: cover;
       margin-bottom: 1rem;
       border: 3px solid var(--primary);
-      box-shadow: 0 0 10px rgba(255, 75, 4);
+      box-shadow: 0 0 10px rgba(4, 120, 255, 0.6);
       position: relative;
       z-index: 2;
     }
@@ -626,6 +627,31 @@
         right: 4rem;
       }
     }
+
+    @media (max-width: 520px) {
+      header {
+        padding: 3rem 1.25rem;
+      }
+      .logo {
+        font-size: 2.1rem;
+      }
+      .card-title {
+        font-size: 1.35rem;
+      }
+      .features-grid {
+        gap: 1rem;
+      }
+      .mini-box,
+      .wide-box {
+        padding: 0.9rem;
+      }
+      nav ul {
+        gap: 0.6rem;
+      }
+      nav a {
+        font-size: 0.95rem;
+      }
+    }
     
     /* Neon Link Effect */
     .neon-link {
@@ -645,34 +671,19 @@
     }
     
     .rating {
-      color: rgb(255, 75, 4);
+      color: var(--accent);
     }
     
     .quote {
       font-size: 18px;
       margin: 20px;
       padding: 10px;
-      border-left: 4px solid rgb(255, 75, 4);
+      border-left: 4px solid var(--accent);
       display: inline-block;
       text-align: right;
       direction: rtl;
-    }
-    
-    .quote {
-      font-size: 18px;
-      margin: 20px;
-      padding: 10px;
-      border-left: 4px solid rgb(255, 75, 4);
-      display: inline-block;
-      text-align: right;
-      direction: rtl;
-    }
-    
-    .quote {
-      font-size: 18px;
       font-weight: bold;
       position: relative;
-      display: inline-block;
     }
     
     .quote::before {
@@ -721,11 +732,11 @@
         background-position: 0% 50%;
       }
       
-      0% {
+      50% {
         background-position: 50% 100%;
       }
       
-      0% {
+      100% {
         background-position: 0% 50%;
       }
     }
@@ -821,36 +832,30 @@
     }
 
     .farewell-screen {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 999999;
-  text-align: center;
-  animation: fadeOut 1s ease-in-out 8s forwards;
-}
-.farewell-title {
-  font-size: 5rem;
-  font-family: 'Tajawal', sans-serif;
-  animation: glow 1.5s ease-in-out infinite alternate;
-}
-@keyframes glow {
-  from { text-shadow: 0 0 20px #ff4b04; }
-  to { text-shadow: 0 0 40px #ff4b04, 0 0 80px #ff4b04; }
-}
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 999999;
+      text-align: center;
+      animation: fadeOut 1s ease-in-out 8s forwards;
+    }
+    .farewell-title {
+      font-size: 5rem;
+      font-family: 'Tajawal', sans-serif;
+      animation: glowWarm 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes glowWarm {
+      from { text-shadow: 0 0 20px var(--accent); }
+      to { text-shadow: 0 0 40px var(--accent), 0 0 80px var(--accent); }
+    }
     /* reusable card-section style (matches #know) */
     .card-section {
       position: relative;
@@ -977,7 +982,7 @@
 
               <div class="mini-box">
           <h3>Movies</h3>
-          <p></p>
+          <p>   </p>
         </div>
 
         <div class="mini-box">
@@ -1010,7 +1015,7 @@
 
   
      <footer style="text-align:center;padding:2rem;">
-    <p>جميع الحقوق محفوظة © 2025</p>
+    <p>جميع الحقوق محفوظة © 2026</p>
   </footer>
 
   
