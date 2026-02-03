@@ -400,6 +400,10 @@
     }
 
     .mini-box h3 { margin-bottom: 6px; }
+    .mini-box h3 i {
+      margin-left: 6px;
+      color: var(--primary);
+    }
 
     .mini-box p { opacity: 0.95; }
 
@@ -676,6 +680,9 @@
     }
 
     @media (max-width: 520px) {
+      body {
+        background: radial-gradient(1200px 700px at 10% -10%, rgba(4, 120, 255, 0.12), transparent 60%), var(--dark);
+      }
       header {
         padding: 3rem 1.25rem;
       }
@@ -721,6 +728,7 @@
       section {
         padding: 1.2rem;
         border-radius: 10px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
       }
       .feature-card {
         padding: 1.5rem;
@@ -1054,17 +1062,17 @@
       <p>Don't ask me</p>
       <div class="features-grid">
         <div class="mini-box">
-          <h3>My name</h3>
+          <h3><i class="fas fa-user"></i>My name</h3>
           <p>Yaun • Hazem</p>
         </div>
 
         <div class="mini-box">
-          <h3>Education</h3>
+          <h3><i class="fas fa-graduation-cap"></i>Education</h3>
           <p>First year of preparatory school</p>
         </div>
 
         <div class="mini-box">
-          <h3>Skills</h3>
+          <h3><i class="fas fa-bolt"></i>Skills</h3>
           <p>Anything or nothing</p>
         </div>
       </div>
@@ -1075,17 +1083,17 @@
       <p>I don't think I have any hobbies</p>
       <div class="features-grid">
         <div class="mini-box">
-          <h3>Series</h3>
+          <h3><i class="fas fa-tv"></i>Series</h3>
           <p>TWD • Breaking Bad</p>
         </div>
 
               <div class="mini-box">
-          <h3>Movies</h3>
+          <h3><i class="fas fa-film"></i>Movies</h3>
           <p>   </p>
         </div>
 
         <div class="mini-box">
-          <h3>Anime</h3>
+          <h3><i class="fas fa-dragon"></i>Anime</h3>
           <p>Code Geass • AOT</p>
         </div>
       </div>
@@ -1096,12 +1104,12 @@
       <p>I advise you not to contact me</p>
       <div class="features-grid">
         <div class="mini-box">
-          <h3>WhatsApp</h3>
+          <h3><i class="fab fa-whatsapp"></i>WhatsApp</h3>
           <p>Whats: <a class="neon-link" href="https://wa.me/201033930253" target="_blank">01033930253</a></p>
         </div>
 
         <div class="mini-box">
-          <h3>Instagram</h3>
+          <h3><i class="fab fa-instagram"></i>Instagram</h3>
           <p>Insta: <a class="neon-link" href="https://instagram.com/me_24736" target="_blank">me_24736</a></p>
         </div>
       </div>
