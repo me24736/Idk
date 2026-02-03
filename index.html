@@ -229,6 +229,27 @@
       position: relative;
       z-index: 2;
     }
+
+    .header-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 14px auto 0;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      background: rgba(4, 120, 255, 0.15);
+      border: 1px solid rgba(4, 120, 255, 0.35);
+      color: var(--light);
+      position: relative;
+      z-index: 2;
+      animation: fadeSlide 1s ease 0.9s forwards;
+      opacity: 0;
+    }
+
+    .header-tag i {
+      color: var(--primary);
+    }
     
     nav {
       background: var(--nav-bg);
@@ -1080,6 +1101,10 @@
   <header style="padding:4rem 2rem;text-align:center;">
     <h1 class="logo">🌨️ | 𝑰𝒅𝒌</h1>
     <p style="margin-top:8px">I'm dead</p>
+    <div class="header-tag">
+      <i class="fa-solid fa-circle-info"></i>
+      I'm Egyptian
+    </div>
   </header>
 
   <main style="max-width:1200px;margin:0 auto;padding:2rem;">
